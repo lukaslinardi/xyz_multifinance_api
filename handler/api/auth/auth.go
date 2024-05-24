@@ -10,13 +10,13 @@ import (
 	"io"
 	"net/http"
 
-	authService "github.com/lukaslinardi/fullstack_engineer_sprint_asia/service/auth"
+	authService "github.com/lukaslinardi/xyz_multifinance_api/service/auth"
 
-	cg "github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/constants/general"
-	mc "github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/model/auth"
+	cg "github.com/lukaslinardi/xyz_multifinance_api/domain/constants/general"
+	mc "github.com/lukaslinardi/xyz_multifinance_api/domain/model/auth"
 
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/model/general"
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/utils"
+	"github.com/lukaslinardi/xyz_multifinance_api/domain/model/general"
+	"github.com/lukaslinardi/xyz_multifinance_api/domain/utils"
 	"github.com/sirupsen/logrus"
 )
 

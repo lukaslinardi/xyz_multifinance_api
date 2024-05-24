@@ -7,7 +7,7 @@ import (
 
 	"github.com/gorilla/mux"
 	//"github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/model/general"
-	api "github.com/lukaslinardi/fullstack_engineer_sprint_asia/handler"
+	api "github.com/lukaslinardi/xyz_multifinance_api/handler"
 )
 
 func getV1(router, routerJWT *mux.Router, handler api.Handler) {

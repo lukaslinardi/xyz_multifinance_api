@@ -4,11 +4,11 @@ import (
 	"context"
 	"errors"
 
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/model/auth"
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/model/general"
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/utils"
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/infra"
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/repositories/db"
+	"github.com/lukaslinardi/xyz_multifinance_api/domain/model/auth"
+	"github.com/lukaslinardi/xyz_multifinance_api/domain/model/general"
+	"github.com/lukaslinardi/xyz_multifinance_api/domain/utils"
+	"github.com/lukaslinardi/xyz_multifinance_api/infra"
+	"github.com/lukaslinardi/xyz_multifinance_api/repositories/db"
 	"github.com/sirupsen/logrus"
 )
 

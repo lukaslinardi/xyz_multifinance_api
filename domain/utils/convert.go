@@ -11,7 +11,7 @@ import (
 	"golang.org/x/text/language"
 	"golang.org/x/text/message"
 
-	constants "github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/constants/general"
+	constants "github.com/lukaslinardi/xyz_multifinance_api/domain/constants/general"
 )
 
 func GetInt(x string) int {

@@ -1,8 +1,8 @@
 package userHandler
 
 import (
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/model/general"
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/service"
+	"github.com/lukaslinardi/xyz_multifinance_api/domain/model/general"
+	"github.com/lukaslinardi/xyz_multifinance_api/service"
 	"github.com/sirupsen/logrus"
 )
 

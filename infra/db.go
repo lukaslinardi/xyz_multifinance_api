@@ -8,7 +8,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
 
-	constants "github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/constants/general"
+	constants "github.com/lukaslinardi/xyz_multifinance_api/domain/constants/general"
 	log "github.com/sirupsen/logrus"
 	//"github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/model/general"
 )

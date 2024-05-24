@@ -1,11 +1,11 @@
 package service
 
 import (
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/model/general"
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/infra"
-	repository "github.com/lukaslinardi/fullstack_engineer_sprint_asia/repositories"
-	authService "github.com/lukaslinardi/fullstack_engineer_sprint_asia/service/auth"
-	userService "github.com/lukaslinardi/fullstack_engineer_sprint_asia/service/user"
+	"github.com/lukaslinardi/xyz_multifinance_api/domain/model/general"
+	"github.com/lukaslinardi/xyz_multifinance_api/infra"
+	repository "github.com/lukaslinardi/xyz_multifinance_api/repositories"
+	authService "github.com/lukaslinardi/xyz_multifinance_api/service/auth"
+	userService "github.com/lukaslinardi/xyz_multifinance_api/service/user"
 	"github.com/sirupsen/logrus"
 )
 

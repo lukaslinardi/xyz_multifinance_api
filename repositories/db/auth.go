@@ -5,8 +5,8 @@ import (
 	"database/sql"
 	"time"
 
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/model/auth"
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/infra"
+	"github.com/lukaslinardi/xyz_multifinance_api/domain/model/auth"
+	"github.com/lukaslinardi/xyz_multifinance_api/infra"
 	"github.com/sirupsen/logrus"
 )
 

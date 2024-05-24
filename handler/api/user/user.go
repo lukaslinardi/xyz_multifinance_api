@@ -5,10 +5,10 @@ import (
 	// "io/ioutil"
 	// "net/http"
 
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/model/general"
+	"github.com/lukaslinardi/xyz_multifinance_api/domain/model/general"
 	"github.com/sirupsen/logrus"
 
-	userService "github.com/lukaslinardi/fullstack_engineer_sprint_asia/service/user"
+	userService "github.com/lukaslinardi/xyz_multifinance_api/service/user"
 )
 
 type UserHandler struct {

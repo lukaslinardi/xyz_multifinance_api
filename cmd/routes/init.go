@@ -3,7 +3,7 @@ package routes
 import (
 	"github.com/gorilla/mux"
 	//	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/model/general"
-	api "github.com/lukaslinardi/fullstack_engineer_sprint_asia/handler"
+	api "github.com/lukaslinardi/xyz_multifinance_api/handler"
 	// "github.com/sirupsen/logrus"
 )
 

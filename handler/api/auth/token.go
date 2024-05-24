@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"strings"
 
-	cg "github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/constants/general"
-	dg "github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/model/general"
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/utils"
+	cg "github.com/lukaslinardi/xyz_multifinance_api/domain/constants/general"
+	dg "github.com/lukaslinardi/xyz_multifinance_api/domain/model/general"
+	"github.com/lukaslinardi/xyz_multifinance_api/domain/utils"
 
 	"github.com/sirupsen/logrus"
 )

@@ -1,10 +1,10 @@
 package api
 
 import (
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/model/general"
-	authHandler "github.com/lukaslinardi/fullstack_engineer_sprint_asia/handler/api/auth"
-	userHandler "github.com/lukaslinardi/fullstack_engineer_sprint_asia/handler/api/user"
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/service"
+	"github.com/lukaslinardi/xyz_multifinance_api/domain/model/general"
+	authHandler "github.com/lukaslinardi/xyz_multifinance_api/handler/api/auth"
+	userHandler "github.com/lukaslinardi/xyz_multifinance_api/handler/api/user"
+	"github.com/lukaslinardi/xyz_multifinance_api/service"
 	"github.com/sirupsen/logrus"
 )
 

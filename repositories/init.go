@@ -1,10 +1,10 @@
 package repository
 
 import (
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/model/general"
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/infra"
+	"github.com/lukaslinardi/xyz_multifinance_api/domain/model/general"
+	"github.com/lukaslinardi/xyz_multifinance_api/infra"
 
-	database "github.com/lukaslinardi/fullstack_engineer_sprint_asia/repositories/db"
+	database "github.com/lukaslinardi/xyz_multifinance_api/repositories/db"
 	"github.com/sirupsen/logrus"
 )
 

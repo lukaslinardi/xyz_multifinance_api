@@ -4,9 +4,9 @@ import (
 	"os"
 
 	rotatelogs "github.com/lestrrat-go/file-rotatelogs"
-	constants "github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/constants/general"
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/model/general"
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/utils"
+	constants "github.com/lukaslinardi/xyz_multifinance_api/domain/constants/general"
+	"github.com/lukaslinardi/xyz_multifinance_api/domain/model/general"
+	"github.com/lukaslinardi/xyz_multifinance_api/domain/utils"
 	"github.com/rifflock/lfshook"
 	"github.com/sirupsen/logrus"
 )

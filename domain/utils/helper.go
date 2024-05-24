@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	constants "github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/constants/general"
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/model/general"
+	constants "github.com/lukaslinardi/xyz_multifinance_api/domain/constants/general"
+	"github.com/lukaslinardi/xyz_multifinance_api/domain/model/general"
 
 	"github.com/spf13/viper"
 )

@@ -1,7 +1,7 @@
 package db
 
 import (
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/infra"
+	"github.com/lukaslinardi/xyz_multifinance_api/infra"
 	"github.com/sirupsen/logrus"
 )
 

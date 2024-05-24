@@ -6,12 +6,12 @@ import (
 
 	"github.com/gorilla/handlers"
 
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/cmd/routes"
-	mg "github.com/lukaslinardi/fullstack_engineer_sprint_asia/domain/model/general"
-	api "github.com/lukaslinardi/fullstack_engineer_sprint_asia/handler"
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/infra"
-	repository "github.com/lukaslinardi/fullstack_engineer_sprint_asia/repositories"
-	"github.com/lukaslinardi/fullstack_engineer_sprint_asia/service"
+	"github.com/lukaslinardi/xyz_multifinance_api/cmd/routes"
+	mg "github.com/lukaslinardi/xyz_multifinance_api/domain/model/general"
+	api "github.com/lukaslinardi/xyz_multifinance_api/handler"
+	"github.com/lukaslinardi/xyz_multifinance_api/infra"
+	repository "github.com/lukaslinardi/xyz_multifinance_api/repositories"
+	"github.com/lukaslinardi/xyz_multifinance_api/service"
 	"github.com/sirupsen/logrus"
 )
 
@@ -34,7 +34,7 @@ func main() {
 
 	router := routes.GetCoreEndpoint(handler)
 
-    port := fmt.Sprintf(":%s", "8080")
+	port := fmt.Sprintf(":%s", "8080")
 	log.Info("server listen to port ", port)
 	log.Fatal(http.ListenAndServe(":8080", handlers.CORS(headers, methods, origins, credentials)(router)))
 
