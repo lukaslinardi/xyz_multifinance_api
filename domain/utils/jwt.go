@@ -7,7 +7,10 @@ import (
 	jwt "github.com/dgrijalva/jwt-go"
 )
 
-const issuer = "test"
+const (
+	issuer = "test"
+	renewClaims = "ddc20ad0"
+)
 
 var jwtCfg JWT
 
@@ -22,6 +25,57 @@ type Claims struct {
 	jwt.StandardClaims
 	Session string `json:"session"`
 	Renew   string `json:"renew,omitempty"`
+}
+
+func GenerateJWT(session string) (string, string, error) {
+	//Create Access Token
+	accessToken, err := generateAccessToken(session)
+	if err != nil {
+		return "", "", err
+	}
+
+	//Create Refresh Token
+	refreshToken, err := generateRefreshToken(session)
+	if err != nil {
+		return "", "", err
+	}
+
+	return accessToken, refreshToken, nil
+}
+
+func generateAccessToken(session string) (string, error) {
+	accessClaims := Claims{
+		StandardClaims: jwt.StandardClaims{
+			Issuer:    issuer,
+			ExpiresAt: time.Now().UTC().Add(jwtCfg.atd).Unix(),
+		},
+		Session: session,
+	}
+	accessToken := jwt.NewWithClaims(jwt.SigningMethodHS256, accessClaims)
+	accessSignedToken, err := accessToken.SignedString(jwtCfg.atSecretKey)
+	if err != nil {
+		return "", err
+	}
+
+	return accessSignedToken, nil
+}
+
+func generateRefreshToken(session string) (string, error) {
+	refreshClaims := Claims{
+		StandardClaims: jwt.StandardClaims{
+			Issuer:    issuer,
+			ExpiresAt: time.Now().UTC().Add(jwtCfg.rtd).Unix(),
+		},
+		Session: session,
+		Renew:   renewClaims,
+	}
+	refreshToken := jwt.NewWithClaims(jwt.SigningMethodHS384, refreshClaims)
+	refreshSignedToken, err := refreshToken.SignedString(jwtCfg.rtSecretKey)
+	if err != nil {
+		return "", err
+	}
+
+	return refreshSignedToken, nil
 }
 
 func CheckAccessToken(tokenString string) (jwt.MapClaims, error) {

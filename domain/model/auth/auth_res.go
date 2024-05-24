@@ -3,7 +3,7 @@ package auth
 type LoginResponse struct {
 	Token    TokenRes `json:"token"`
 	Fullname string   `json:"fullname" db:"fullname"`
-	Email    string   `json:"email" db:"email"`
+	Nik      string   `json:"nik" db:"nik"`
 	Password string   `json:"-" db:"password"`
 	ID       int64    `json:"-" db:"id"`
 }
@@ -18,5 +18,5 @@ type TokenRes struct {
 type CredentialData struct {
 	ID       int64  `json:"id"`
 	Fullname string `json:"fullname"`
-	Email    string `json:"email"`
+	Nik      string `json:"nik"`
 }

@@ -3,6 +3,8 @@ package authService
 import (
 	"context"
 	"errors"
+	"fmt"
+	"time"
 
 	"github.com/lukaslinardi/xyz_multifinance_api/domain/model/auth"
 	"github.com/lukaslinardi/xyz_multifinance_api/domain/model/general"
@@ -30,6 +32,74 @@ func newAuthService(db db.Database, conf general.AppService, dbConn *infra.Datab
 
 type Auth interface {
 	InsertUser(ctx context.Context, data auth.SignUp) (map[string]string, error)
+	Login(ctx context.Context, data auth.Login) (*auth.LoginResponse, map[string]string, error)
+}
+
+func (as AuthService) Login(ctx context.Context, data auth.Login) (*auth.LoginResponse, map[string]string, error) {
+	internalServerError := func(err error) (*auth.LoginResponse, map[string]string, error) {
+		return nil, map[string]string{
+			"en": "failed to login, try again another time",
+			"id": "gagal login, coba lagi dilain waktu",
+		}, err
+	}
+
+	valid := data.Validate()
+	if valid != nil {
+		return nil, map[string]string{
+			"en": "failed to login, try again another time",
+			"id": "gagal login, coba lagi dilain waktu",
+		}, errors.New("data not valid")
+	}
+
+	dataUser, err := as.db.Auth.GetDataUser(ctx, data.Nik)
+	if err != nil {
+		as.log.WithField("request", utils.StructToString(data.Nik)).WithError(err).Errorf("Login | High | fail to get user")
+		return internalServerError(err)
+	}
+
+	isValid, err := utils.ComparePassword(dataUser.Password, data.Password)
+	if err != nil {
+		fmt.Println(err)
+		as.log.WithField("request", utils.StructToString(data)).WithError(err).Errorf("Login | Medium | fail to compare password")
+		return internalServerError(err)
+	}
+
+	if !isValid {
+		return nil, map[string]string{
+			"en": "password incorrect",
+			"id": "password salah",
+		}, errors.New("password incorrect")
+	}
+
+	session, err := utils.GetEncrypt([]byte(as.conf.KeyData.User), utils.StructToString(auth.CredentialData{
+		ID:       dataUser.ID,
+		Fullname: dataUser.Fullname,
+		Nik:      dataUser.Nik,
+	}))
+
+	generateTime := time.Now().UTC()
+
+	accessToken, renewToken, err := utils.GenerateJWT(session)
+	if err != nil {
+		as.log.WithField("request", utils.StructToString(session)).Errorf("Login | High | fail generate jwt token")
+		return internalServerError(err)
+	}
+
+	result := auth.LoginResponse{
+		Token: auth.TokenRes{
+			Access:        accessToken,
+			AccessExpired: generateTime.Add(time.Duration(as.conf.Authorization.JWT.AccessTokenDuration) * time.Minute).Format(time.RFC3339),
+			Renew:         renewToken,
+			RenewExpired:  generateTime.Add(time.Duration(as.conf.Authorization.JWT.RefreshTokenDuration) * time.Minute).Format(time.RFC3339),
+		},
+		Fullname: dataUser.Fullname,
+		Nik:      dataUser.Nik,
+	}
+
+	return &result, map[string]string{
+		"en": "Login Successfully",
+		"id": "Login Sukses",
+	}, nil
 }
 
 func (as AuthService) InsertUser(ctx context.Context, data auth.SignUp) (map[string]string, error) {

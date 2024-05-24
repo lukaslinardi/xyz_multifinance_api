@@ -12,7 +12,7 @@ import (
 
 func getV1(router, routerJWT *mux.Router, handler api.Handler) {
 	router.HandleFunc("/v1/signup", handler.Auth.Auth.SignUp).Methods(http.MethodPost)
-	// router.HandleFunc("/v1/psef/login", handler.Auth.Auth.Login).Methods(http.MethodPost)
+	router.HandleFunc("/v1/login", handler.Auth.Auth.Login).Methods(http.MethodPost)
 	// router.HandleFunc("/v1/psef/forget-password", handler.Auth.Auth.ForgetPassword).Methods(http.MethodGet)
 	// routerJWT.HandleFunc("/v1/psef/outlet", handler.User.User.GetOutletList).Methods(http.MethodGet)
 	// routerJWT.HandleFunc("/v1/psef/outlet-detail", handler.User.User.GetOutletDetail).Methods(http.MethodGet)

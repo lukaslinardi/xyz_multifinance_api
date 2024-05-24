@@ -25,10 +25,30 @@ func newAuth(db *infra.DatabaseList, logger *logrus.Logger) AuthConfig {
 type Auth interface {
 	InsertUser(ctx context.Context, tx *sql.Tx, data auth.SignUp) error
 	IsExist(ctx context.Context, nik string) (bool, error)
+	GetDataUser(ctx context.Context, nik string) (*auth.LoginResponse, error)
+}
+
+func (ac AuthConfig) GetDataUser(ctx context.Context, nik string) (*auth.LoginResponse, error) {
+	var res auth.LoginResponse
+
+	script := `SELECT id, fullname, nik, password FROM users where nik = ?`
+
+	query, args, err := ac.db.Backend.Read.In(script, nik)
+	if err != nil {
+		return nil, err
+	}
+
+	query = ac.db.Backend.Read.Rebind(query)
+	err = ac.db.Backend.Read.Get(&res, query, args...)
+	if err != nil && err != sql.ErrNoRows {
+		return nil, err
+	}
+
+	return &res, nil
 }
 
 func (ac AuthConfig) IsExist(ctx context.Context, nik string) (bool, error) {
-    var isExist bool
+	var isExist bool
 	script := `SELECT exists(SELECT * FROM users where nik = ?)`
 
 	query, args, err := ac.db.Backend.Read.In(script, nik)

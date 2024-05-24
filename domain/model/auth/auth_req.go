@@ -22,6 +22,12 @@ type SignUp struct {
 	Password   string    `json:"password"`
 }
 
+type Login struct {
+	Fullname string `json:"fullname"`
+	Nik      string `json:"nik"`
+	Password string `json:"password"`
+}
+
 func (r *SignUp) Validate() map[string]string {
 	if r.Fullname == "" {
 		return map[string]string{
@@ -39,3 +45,19 @@ func (r *SignUp) Validate() map[string]string {
 	return nil
 }
 
+func (r *Login) Validate() map[string]string {
+	if r.Fullname == "" {
+		return map[string]string{
+			"en": "fullname not found",
+			"id": "fullname tidak boleh kosong",
+		}
+	}
+
+	if r.Password == "" {
+		return map[string]string{
+			"en": "password not found",
+			"id": "kata sandi tidak boleh kosong",
+		}
+	}
+	return nil
+}
