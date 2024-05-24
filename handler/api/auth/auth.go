@@ -2,10 +2,6 @@ package authHandler
 
 import (
 
-	// cg "olin_psef/domain/constants/general"
-	// mc "olin_psef/domain/model/auth"
-	// "olin_psef/domain/model/general"
-	// "olin_psef/domain/utils"
 	"encoding/json"
 	"io"
 	"net/http"
