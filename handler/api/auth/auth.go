@@ -71,7 +71,7 @@ func (ah AuthHandler) Login(res http.ResponseWriter, req *http.Request) {
 	}
 
 	respData = &utils.ResponseDataV3{
-		Status:  cg.Fail,
+		Status:  cg.Success,
 		Message: message,
 		Detail:  response,
 	}

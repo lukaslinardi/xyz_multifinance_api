@@ -86,3 +86,6 @@ time="2024-05-24 22:19:49" level=error msg="Login | High | fail to get user" err
 time="2024-05-24 22:20:00" level=info msg="Connected to DB"
 time="2024-05-24 22:20:00" level=info msg="Connected to DB"
 time="2024-05-24 22:20:00" level=info msg="server listen to port :8080"
+time="2024-05-24 22:39:25" level=info msg="Connected to DB"
+time="2024-05-24 22:39:25" level=info msg="Connected to DB"
+time="2024-05-24 22:39:25" level=info msg="server listen to port :8080"
